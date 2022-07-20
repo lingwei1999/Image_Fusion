@@ -72,7 +72,7 @@ class Fuse:
         print('att_params: ', att_params)
         print('total_params: ', ext_params+con_params+att_params)
 
-        assert False
+        #assert False
         # image list
         ir_folder = pathlib.Path(ir_folder)
         vi_folder = pathlib.Path(vi_folder)
@@ -160,7 +160,7 @@ if __name__ == '__main__':
     # f('../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/thermal', '../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/visual', 'result/TNO')
     # f('../FusionData/LLVIP/LLVIP/infrared/test', '../FusionData/LLVIP/LLVIP/visible/test', 'result/LLVIP')
     # f('../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/IR', '../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/VIS', 'result/TNO/test')
-    f('./data/test/ir', './data/test/vi', 'results/minimize_tradConv')
+    #f('./data/test/ir', './data/test/vi', 'results/minimize_tradConv')
 
     model = 'minimize_tradConv'
     f('../datasets/TNO/Nato_sequence/thermal', '../datasets/TNO/Nato_sequence/visual', f'results/TNO/Nato/{model}')
