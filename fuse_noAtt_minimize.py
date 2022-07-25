@@ -139,7 +139,7 @@ class Fuse:
 if __name__ == '__main__':
     # f = Fuse('weights/default.pth')
     # f = Fuse('weights/old_best.pth')
-    f = Fuse('./cache/minimize/best.pth')
+    f = Fuse('./cache/minimize_noatt/best.pth')
     # f('../densefuse-pytorch/dataset/FLIR_ADAS_v2/datasets/IR', '../densefuse-pytorch/dataset/FLIR_ADAS_v2/datasets/VIS', 'result/affine')
     # f('../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/thermal', '../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/visual', 'result/TNO')
     # f('../FusionData/LLVIP/LLVIP/infrared/test', '../FusionData/LLVIP/LLVIP/visible/test', 'result/LLVIP')
