@@ -14,6 +14,8 @@ from models.extractor_minimize import Extractor
 
 from skimage.metrics import structural_similarity as ssim
 
+from torchsummary import summary
+
 class Fuse:
     """
     fuse with infrared folder and visible folder
@@ -63,6 +65,17 @@ class Fuse:
         :param vi_folder: visible image folder
         :param dst: fusion image output folder
         """
+
+        ext_params = sum(p.numel() for p in self.net_ext.parameters())
+        con_params = sum(p.numel() for p in self.net_con.parameters())
+        # att_params = sum(p.numel() for p in self.net_att.parameters())
+        print('ext_params: ', ext_params)
+        print('con_params: ', con_params)
+        # print('att_params: ', att_params)
+        print('total_params: ', ext_params+con_params)
+        
+        # summary(self.net_ext, (1,256,256))
+        # assert False
 
         # image list
         ir_folder = pathlib.Path(ir_folder)
@@ -139,9 +152,9 @@ class Fuse:
 if __name__ == '__main__':
     # f = Fuse('weights/default.pth')
     # f = Fuse('weights/old_best.pth')
-    f = Fuse('./cache/minimize_noatt/best.pth')
+    f = Fuse('./cache/minimize_noAtt/best.pth')
     # f('../densefuse-pytorch/dataset/FLIR_ADAS_v2/datasets/IR', '../densefuse-pytorch/dataset/FLIR_ADAS_v2/datasets/VIS', 'result/affine')
     # f('../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/thermal', '../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/FEL_images/Nato_camp_sequence/visual', 'result/TNO')
     # f('../FusionData/LLVIP/LLVIP/infrared/test', '../FusionData/LLVIP/LLVIP/visible/test', 'result/LLVIP')
     # f('../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/IR', '../FusionData/TNO_Image_Fusion_Dataset/TNO_Image_Fusion_Dataset/VIS', 'result/TNO/test')
-    f('./data/test/ir', './data/test/vi', 'results/minimize')
+    f('./data/test/ir', './data/test/vi', 'results/minimize_noAtt')
